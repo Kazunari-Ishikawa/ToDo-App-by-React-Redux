@@ -1,15 +1,16 @@
 import React from 'react';
-import TodoCreater from '../components/TodoCreator';
+import TodoCreator from '../components/TodoCreator';
 import Search from '../components/Search';
-import VisibleTodoList from '../containers/VisibleTodoList';
 
-export default class todoApp extends React.Component {
+export default class TodoApp extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
-      <div className="l-app">
-        <TodoCreater />
+      <div>
+        <TodoCreator />
         <Search />
-        <VisibleTodoList />
       </div>
     );
   }
