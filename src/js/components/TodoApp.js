@@ -1,6 +1,5 @@
 import React from 'react';
 import TodoCreator from '../components/TodoCreator';
-import Search from '../components/Search';
 
 export default class TodoApp extends React.Component {
   constructor(props) {
@@ -8,9 +7,8 @@ export default class TodoApp extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="l-app">
         <TodoCreator />
-        <Search />
       </div>
     );
   }
