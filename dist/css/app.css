@@ -124,9 +124,11 @@ body {
   margin-bottom: 20px;
   margin-right: 10px;
   margin-left: 10px;
+  transition: 0.3s;
 }
 .c-btnArea__btn:hover {
   cursor: pointer;
+  opacity: 0.8;
 }
 .c-btnArea__btn--done {
   background: rgba(0,67,255,0.8);
