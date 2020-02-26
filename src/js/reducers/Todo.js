@@ -19,23 +19,35 @@ export default function todo(state = initialState, action) {
         { id: action.id, text: action.text, isDone: false, isStar: false }]
       };
     case 'TOGGLE_DONE':
-      const done = state.todos.map((todo) => {
-        if (todo.id === action.id) {
-          return Object.assign({}, todo, {
-            isDone: !todo.isDone,
-          });
-        }
+      // const prev = state.todos.map((todo) => {
+      //   if (todo.id === action.id) {
+      //     return Object.assign({}, todo, {
+      //       isDone: !todo.isDone,
+      //     });
+      //   }
+      // });
+      // return Object.assign({}, state, prev);
+      return Object.assign({}, state, {
+        todos: state.todos.map((todo) => {
+          if (todo.id === action.id) {
+            return Object.assign({}, todo, {
+              isDone: !todo.isDone,
+            });
+          }
+          return todo
+        })
       });
-      return Object.assign({}, state, done);
     case 'UPDATE':
-      const prevTodo = state.todos.map((todo) => {
-        if (todo.id === action.id) {
-          return Object.assign({}, todo, {
-            text: prevTodo.text,
-          });
-        }
+      return Object.assign({}, state, {
+        todos: state.todos.map((todo) => {
+          if (todo.id === action.id) {
+            return Object.assign({}, todo, {
+              text: action.text,
+            });
+          }
+          return todo
+        })
       });
-      return Object.assign({}, state, prevTodo);
     case 'DELETE':
       return Object.assign({}, state, {
         todos: _.reject(state.todos, { 'id': action.id })
@@ -43,14 +55,16 @@ export default function todo(state = initialState, action) {
     case 'SEARCH':
       return Object.assign({}, state, { searchText: action.searchText });
     case 'TOGGLE_STAR':
-      const star = state.todos.map((todo) => {
-        if (todo.id === action.id) {
-          return Object.assign({}, todo, {
-            isStar: !todo.isStar,
-          });
-        }
+      return Object.assign({}, state, {
+        todos: state.todos.map((todo) => {
+          if (todo.id === action.id) {
+            return Object.assign({}, todo, {
+              isStar: !todo.isStar,
+            });
+          }
+          return todo
+        })
       });
-      return Object.assign({}, state, star);
     default:
       return state;
   }

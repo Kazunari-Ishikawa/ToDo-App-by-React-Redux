@@ -47,6 +47,10 @@ body {
   line-height: 1.2;
   letter-spacing: 0.05em;
 }
+/* 開発用 */
+#app {
+  display: none;
+}
 
 /* レイアウト */
 #l-main {
