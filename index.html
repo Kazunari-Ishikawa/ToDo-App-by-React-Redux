@@ -1,18 +1,69 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TODO LIST</title>
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="dist/css/app.css">
-  <script src="https://use.fontawesome.com/e3ae05b8e6.js"></script>
 </head>
+
 <body>
+  <section id="l-main">
+    <!-- タイトル -->
+    <div class="c-title">
+      <h1 class="c-title__main">TODO LIST</h1>
+      <h2 class="c-title__sub">Stay hungry, stay foolish.</h2>
+    </div>
 
-<div class="main">
-  <h1 class="mainTitle">TODOS</h1>
-  <div id="app"></div>
-</div>
+    <!-- メイン部 -->
+    <div id="app" class="l-app">
 
-<script src="dist/js/bundle.js"></script>
+      <!-- 入力エリア -->
+      <div class="c-input">
+        <input type="text" name="task" class="c-input__box" placeholder="Add task">
+      </div>
+
+      <!-- 検索エリア -->
+      <div class="c-search">
+        <input type="text" class="c-search__box" placeholder="Search">
+      </div>
+
+      <!-- ボタンエリア -->
+      <div class="c-btnArea">
+        <div class="c-btnArea__btn c-btnArea__btn--done">
+          <p class="c-btnArea__text">All Done</p>
+          <i class="fas fa-check-square c-btnArea__ u-icon u-icon--alltrash"></i>
+        </div>
+        <div class="c-btnArea__btn c-btnArea__btn--clear">
+          <p class="c-btnArea__text">All Clear</p>
+          <i class="fas fa-trash c-btnArea__ u-icon u-icon--alltrash"></i>
+        </div>
+      </div>
+
+      <!-- Todoリスト -->
+      <div class="c-todoList">
+        <div class="c-todoList__item">
+          <i class="far fa-check-circle c-todoList__icon u-icon u-icon--check"></i>
+          <i class="far fa-star c-todoList__icon u-icon u-icon--star"></i>
+          <span class="c-todoList__text">掃除</span>
+          <input type="text" class="c-todoList__editForm">
+          <i class="far fa-trash-alt c-todoList__icon u-icon u-icon--trash"></i>
+        </div>
+        <div class="c-todoList__item isDone">
+          <i class="far fa-check-circle c-todoList__icon u-icon u-icon--check"></i>
+          <i class="far fa-star c-todoList__icon u-icon u-icon--star"></i>
+          <span class="c-todoList__text">片付け</span>
+          <input type="text" class="c-todoList__editForm">
+          <i class="far fa-trash-alt c-todoList__icon u-icon u-icon--trash"></i>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script src="dist/js/bundle.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,176 @@
+/* reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ベース */
+body {
+  background: #f6f5f4;
+  color: #333;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+/* レイアウト */
+#l-main {
+  width: 50%;
+  max-width: 400px;
+  margin: 30px auto;
+}
+.l-app {
+  width: 100%;
+  position: relative;
+}
+
+/* コンポーネント */
+/* title */
+.c-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+}
+.c-title__main {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+.c-title__sub {
+  font-size: 20px;
+}
+
+/* input */
+.c-input {
+  width: 100%;
+  margin-bottom: 30px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
+}
+.c-input__box {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  border: none;
+  height: 50px;
+  font-size: 18px;
+}
+
+/* search */
+.c-search {
+  width: 100%;
+  margin-bottom: 50px;
+  border-radius: 30px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
+}
+.c-search__box {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  border: none;
+  height: 50px;
+  font-size: 18px;
+  border-radius: 30px;
+}
+
+/* btnArea */
+.c-btnArea {
+  width: 130px;
+  position: absolute;
+  left: 105%;
+}
+.c-btnArea__btn {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  transition: 0.3s;
+}
+.c-btnArea__btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.c-btnArea__btn--done {
+  background: rgba(0,67,255,0.8);
+  color: white;
+}
+.c-btnArea__btn--clear {
+  background: rgba(255,90,0,0.8);
+  color: white;
+}
+.c-btnArea__text {
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+/* todoList */
+.c-todoList {
+  width: 100%;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
+}
+.c-todoList__item {
+  box-sizing: border-box;
+  width: 100%;
+  background: #fff;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+.c-todoList__item.isDone {
+  background: rgba(0,0,0, 0.4);
+}
+.c-todoList__icon {
+  flex: 0 1 10%;
+  font-size: 20px;
+}
+.c-todoList__text {
+  flex: 3 1 50%;
+  font-size: 20px;
+}
+.c-todoList__editForm {
+  display: none;
+}
