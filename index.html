@@ -13,7 +13,7 @@
   <section id="l-main">
     <!-- タイトル -->
     <div class="c-title">
-      <h1 class="c-title__main">TODO　LIST</h1>
+      <h1 class="c-title__main">TODO LIST</h1>
       <h2 class="c-title__sub">Stay hungry, stay foolish.</h2>
     </div>
 
@@ -22,19 +22,23 @@
 
       <!-- 入力エリア -->
       <div class="c-input">
-        <input type="text" name="task" class="c-input__box" placeholder="Input task!">
+        <input type="text" name="task" class="c-input__box" placeholder="Add task">
       </div>
 
       <!-- 検索エリア -->
-      <div class="c-serach">
-        <input type="text" class="c-search__box" placeholder="Search task.">
+      <div class="c-search">
+        <input type="text" class="c-search__box" placeholder="Search">
       </div>
 
       <!-- ボタンエリア -->
       <div class="c-btnArea">
-        <div class="c-btnArea__alltrash">
+        <div class="c-btnArea__btn c-btnArea__btn--done">
+          <p class="c-btnArea__text">All Done</p>
+          <i class="fas fa-trash c-btnArea__ u-icon u-icon--alltrash"></i>
+        </div>
+        <div class="c-btnArea__btn c-btnArea__btn--clear">
           <p class="c-btnArea__text">All Clear</p>
-          <i class="fas fa-trash c-btnArea__btn u-icon u-icon--alltrash"></i>
+          <i class="fas fa-trash c-btnArea__ u-icon u-icon--alltrash"></i>
         </div>
       </div>
 

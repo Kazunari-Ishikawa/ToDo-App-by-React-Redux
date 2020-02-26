@@ -40,4 +40,113 @@ table {
   border-spacing: 0;
 }
 
-/* メイン */
+/* ベース */
+body {
+  background: #f6f5f4;
+  color: #333;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+/* レイアウト */
+#l-main {
+  width: 50%;
+  max-width: 450px;
+  margin: 30px auto;
+}
+.l-app {
+  width: 100%;
+  position: relative;
+}
+
+/* コンポーネント */
+/* title */
+.c-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+}
+.c-title__main {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+.c-title__sub {
+  font-size: 20px;
+}
+
+/* input */
+.c-input {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.c-input__box {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  border: none;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+/* search */
+.c-search {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.c-search__box {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  border: none;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+/* btnArea */
+.c-btnArea {
+  width: 130px;
+  position: absolute;
+  left: 100%;
+}
+.c-btnArea__btn {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.c-btnArea__btn:hover {
+  cursor: pointer;
+}
+.c-btnArea__btn--done {
+  background: rgba(0,67,255,0.8);
+  color: white;
+}
+.c-btnArea__btn--clear {
+  background: rgba(255,90,0,0.8);
+  color: white;
+}
+.c-btnArea__text {
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+/* todoList */
+.c-todoList {
+  width: 100%;
+}
+.c-todoList__item {
+  width: 100%;
+  background: #fff;
+  height: 50px;
+}
