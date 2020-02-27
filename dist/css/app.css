@@ -175,6 +175,9 @@ body {
   border-bottom: 1px solid #ccc;
   transition: 0.3s;
 }
+.c-todoList__item:hover{
+  transform: scale(1.02);
+}
 .c-todoList__item.isDone {
   background: rgba(0,0,0, 0.4);
 }
@@ -193,6 +196,8 @@ body {
   font-size: 18px;
 }
 .c-todoList__editForm {
+  flex: 3 1 50%;
+  font-size: 18px;
   border: none;
 }
 
