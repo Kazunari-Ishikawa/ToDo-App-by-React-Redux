@@ -487,9 +487,10 @@ function toggleStar(id) {
   };
 }
 
-function toggleAllDone() {
+function toggleAllDone(flg) {
   return {
-    type: 'TOGGLE_ALL_DONE'
+    type: 'TOGGLE_ALL_DONE',
+    isDone: flg
   };
 }
 
@@ -35948,13 +35949,23 @@ function todo() {
         })
       });
     case 'TOGGLE_ALL_DONE':
-      return Object.assign({}, state, {
-        todos: state.todos.map(function (todo) {
-          return Object.assign({}, todo, {
-            isDone: true
-          });
-        })
-      });
+      if (action.isDone) {
+        return Object.assign({}, state, {
+          todos: state.todos.map(function (todo) {
+            return Object.assign({}, todo, {
+              isDone: false
+            });
+          })
+        });
+      } else {
+        return Object.assign({}, state, {
+          todos: state.todos.map(function (todo) {
+            return Object.assign({}, todo, {
+              isDone: true
+            });
+          })
+        });
+      }
     case 'DELETE_ALL_TODO':
       return Object.assign({});
     default:
@@ -53811,6 +53822,10 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = __webpack_require__(2);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactRedux = __webpack_require__(4);
 
 var _index = __webpack_require__(6);
@@ -53826,31 +53841,52 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var AllChange = function (_React$Component) {
   _inherits(AllChange, _React$Component);
 
-  function AllChange() {
+  function AllChange(props) {
     _classCallCheck(this, AllChange);
 
-    return _possibleConstructorReturn(this, (AllChange.__proto__ || Object.getPrototypeOf(AllChange)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (AllChange.__proto__ || Object.getPrototypeOf(AllChange)).call(this, props));
+
+    _this.state = {
+      isDone: false
+    };
+    _this.handleClickDone = _this.handleClickDone.bind(_this);
+    _this.handleClickDelete = _this.handleClickDelete.bind(_this);
+    return _this;
   }
 
   _createClass(AllChange, [{
+    key: 'handleClickDone',
+    value: function handleClickDone() {
+      this.props.dispatch((0, _index.toggleAllDone)(this.state.isDone));
+      this.setState({
+        isDone: !this.state.isDone
+      });
+    }
+  }, {
+    key: 'handleClickDelete',
+    value: function handleClickDelete() {
+      this.props.dispatch((0, _index.deleteAllTodo)());
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var allDoneBtn = this.state.isDone ? 'All Todo' : 'All Done';
       return _react2.default.createElement(
         'div',
         { className: 'c-btnArea' },
         _react2.default.createElement(
           'div',
-          { className: 'c-btnArea__btn c-btnArea__btn--done' },
+          { className: 'c-btnArea__btn c-btnArea__btn--done', onClick: this.handleClickDone },
           _react2.default.createElement(
             'p',
             { className: 'c-btnArea__text' },
-            'All Done'
+            allDoneBtn
           ),
           _react2.default.createElement('i', { className: 'fas fa-check-square c-btnArea__icon u-icon--alldone' })
         ),
         _react2.default.createElement(
           'div',
-          { className: 'c-btnArea__btn c-btnArea__btn--clear' },
+          { className: 'c-btnArea__btn c-btnArea__btn--clear', onClick: this.handleClickDelete },
           _react2.default.createElement(
             'p',
             { className: 'c-btnArea__text' },
@@ -53864,6 +53900,10 @@ var AllChange = function (_React$Component) {
 
   return AllChange;
 }(_react2.default.Component);
+
+AllChange.propTypes = {
+  dispatch: _propTypes2.default.func.isRequired
+};
 
 exports.default = (0, _reactRedux.connect)()(AllChange);
 

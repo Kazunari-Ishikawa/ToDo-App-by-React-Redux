@@ -58,13 +58,23 @@ export default function todo(state = initialState, action) {
         })
       });
     case 'TOGGLE_ALL_DONE':
-      return Object.assign({}, state, {
-        todos: state.todos.map((todo) => {
-          return Object.assign({}, todo, {
-            isDone: true
-          });
-        })
-      });
+      if (action.isDone) {
+        return Object.assign({}, state, {
+          todos: state.todos.map((todo) => {
+            return Object.assign({}, todo, {
+              isDone: false
+            });
+          })
+        });
+      } else {
+        return Object.assign({}, state, {
+          todos: state.todos.map((todo) => {
+            return Object.assign({}, todo, {
+              isDone: true
+            });
+          })
+        });
+      }
     case 'DELETE_ALL_TODO':
       return Object.assign({});
     default:

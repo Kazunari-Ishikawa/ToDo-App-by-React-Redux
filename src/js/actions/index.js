@@ -43,9 +43,10 @@ export function toggleStar(id) {
   };
 }
 
-export function toggleAllDone() {
+export function toggleAllDone(flg) {
   return {
     type: 'TOGGLE_ALL_DONE',
+    isDone: flg
   };
 }
 
