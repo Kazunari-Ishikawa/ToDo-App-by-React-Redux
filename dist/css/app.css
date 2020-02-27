@@ -176,5 +176,5 @@ body {
   font-size: 20px;
 }
 .c-todoList__editForm {
-  display: none;
+  border: none;
 }

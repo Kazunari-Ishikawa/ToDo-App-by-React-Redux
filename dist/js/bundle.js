@@ -53537,20 +53537,52 @@ var Todo = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Todo.__proto__ || Object.getPrototypeOf(Todo)).call(this, props));
 
-    _this.state = {};
+    _this.state = {
+      text: _this.props.text,
+      editMode: false
+    };
+    _this.handleChangeText = _this.handleChangeText.bind(_this);
+    _this.handleClickShowEdit = _this.handleClickShowEdit.bind(_this);
+    _this.handleClickCloseEdit = _this.handleClickCloseEdit.bind(_this);
     return _this;
   }
 
   _createClass(Todo, [{
+    key: 'handleClickShowEdit',
+    value: function handleClickShowEdit() {
+      this.setState({
+        editMode: true
+      });
+    }
+  }, {
+    key: 'handleClickCloseEdit',
+    value: function handleClickCloseEdit(e) {
+      if (e.keyCode === 13 && e.shiftKey === true) {
+        this.setState({
+          text: e.currentTarget.value,
+          editMode: false
+        });
+        this.props.onEnterUpdateTodo(e.currentTarget.value);
+      }
+    }
+  }, {
+    key: 'handleChangeText',
+    value: function handleChangeText(e) {
+      this.setState({
+        text: e.target.value
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      // Todo：inputの内容を動的にする
-      var input = _react2.default.createElement(
+      var showTodo = _react2.default.createElement(
         'span',
-        { className: 'c-todoList__text' },
-        this.props.text
+        { className: 'c-todoList__text', onClick: this.handleClickShowEdit },
+        this.state.text
       );
-      // const input = <input type="text" class="c-todoList__editForm" />;
+      var editTodo = _react2.default.createElement('input', { type: 'text', className: 'c-todoList__editForm', value: this.state.text, onKeyUp: this.handleClickCloseEdit, onChange: this.handleChangeText });
+      var input = this.state.editMode ? editTodo : showTodo;
+
       // リストのクラス名定義
       var classNameItem = (0, _classnames2.default)({
         'c-todoList__item': true,
@@ -53559,15 +53591,15 @@ var Todo = function (_React$Component) {
       });
       // アイコンのクラス名定義
       var classNameDone = (0, _classnames2.default)({
-        'u-icon': true,
         'c-todoList__icon': true,
+        'u-icon': true,
         'far': true,
         'fa-circle': !this.props.isDone,
         'fa-check-circle': this.props.isDone
       });
       var classNameStar = (0, _classnames2.default)({
-        'u-icon': true,
         'c-todoList__icon': true,
+        'u-icon': true,
         'far': !this.props.isStar,
         'fas': this.props.isStar,
         'fa-star': true
@@ -53579,7 +53611,7 @@ var Todo = function (_React$Component) {
         _react2.default.createElement('i', { className: classNameDone, onClick: this.props.onClickToggleDone }),
         _react2.default.createElement('i', { className: classNameStar, onClick: this.props.onClickToggleStar }),
         input,
-        _react2.default.createElement('i', { className: 'far fa-trash-alt c-todoList__icon u-icon', onClick: this.props.onClickDelete })
+        _react2.default.createElement('i', { className: 'c-todoList__icon u-icon far fa-trash-alt', onClick: this.props.onClickDelete })
       );
     }
   }]);
@@ -53588,7 +53620,7 @@ var Todo = function (_React$Component) {
 }(_react2.default.Component);
 
 Todo.propTypes = {
-  // id: PropTypes.string.isRequired,
+  id: _propTypes2.default.string.isRequired,
   text: _propTypes2.default.string.isRequired,
   isDone: _propTypes2.default.bool.isRequired,
   isStar: _propTypes2.default.bool.isRequired,
