@@ -35877,7 +35877,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 // 初期値設定
 var initialState = {
   todos: [{
-    id: 0,
+    id: '0',
     text: 'sample',
     isDone: false,
     isStar: false
@@ -53264,7 +53264,7 @@ var TodoCreator = function (_React$Component) {
   return TodoCreator;
 }(_react2.default.Component);
 
-TodoCreator.Proptypes = {
+TodoCreator.propTypes = {
   dispatch: _propTypes2.default.func.isRequired
 };
 exports.default = (0, _reactRedux.connect)()(TodoCreator);
@@ -53339,7 +53339,7 @@ var Search = function (_React$Component) {
   return Search;
 }(_react2.default.Component);
 
-Search.Proptypes = {
+Search.propTypes = {
   dispatch: _propTypes2.default.func.isRequired
 };
 exports.default = (0, _reactRedux.connect)()(Search);
@@ -53481,7 +53481,18 @@ var TodoList = function (_React$Component) {
   return TodoList;
 }(_react2.default.Component);
 
-TodoList.propTypes = {};
+TodoList.propTypes = {
+  todos: _propTypes2.default.arrayOf(_propTypes2.default.shape({
+    id: _propTypes2.default.string.isRequired,
+    text: _propTypes2.default.string.isRequired,
+    isDone: _propTypes2.default.bool.isRequired,
+    isStar: _propTypes2.default.bool.isRequired
+  }).isRequired).isRequired,
+  toggleDone: _propTypes2.default.func.isRequired,
+  toggleStar: _propTypes2.default.func.isRequired,
+  updateTodo: _propTypes2.default.func.isRequired,
+  deleteTodo: _propTypes2.default.func.isRequired
+};
 
 exports.default = TodoList;
 
@@ -53533,7 +53544,6 @@ var Todo = function (_React$Component) {
   _createClass(Todo, [{
     key: 'render',
     value: function render() {
-      console.log(this.props);
       // Todo：inputの内容を動的にする
       var input = _react2.default.createElement(
         'span',
@@ -53541,16 +53551,35 @@ var Todo = function (_React$Component) {
         this.props.text
       );
       // const input = <input type="text" class="c-todoList__editForm" />;
-      return (
-        // Todo：c-todoList__item、チェックアイコン、スターアイコンのクラス名を動的にする
-        _react2.default.createElement(
-          'li',
-          { className: 'c-todoList__item' },
-          _react2.default.createElement('i', { className: 'far fa-check-circle c-todoList__icon u-icon u-icon--check', onClick: this.props.onClickToggleDone }),
-          _react2.default.createElement('i', { className: 'far fa-star c-todoList__icon u-icon u-icon--star', onClick: this.props.onClickToggleStar }),
-          input,
-          _react2.default.createElement('i', { className: 'far fa-trash-alt c-todoList__icon u-icon u-icon--trash', onClick: this.props.onClickDelte })
-        )
+      // リストのクラス名定義
+      var classNameItem = (0, _classnames2.default)({
+        'c-todoList__item': true,
+        'c-todoList__item--done': this.props.isDone,
+        'c-todoList__item--star': this.props.isStar
+      });
+      // アイコンのクラス名定義
+      var classNameDone = (0, _classnames2.default)({
+        'u-icon': true,
+        'c-todoList__icon': true,
+        'far': true,
+        'fa-circle': !this.props.isDone,
+        'fa-check-circle': this.props.isDone
+      });
+      var classNameStar = (0, _classnames2.default)({
+        'u-icon': true,
+        'c-todoList__icon': true,
+        'far': !this.props.isStar,
+        'fas': this.props.isStar,
+        'fa-star': true
+      });
+
+      return _react2.default.createElement(
+        'li',
+        { className: classNameItem },
+        _react2.default.createElement('i', { className: classNameDone, onClick: this.props.onClickToggleDone }),
+        _react2.default.createElement('i', { className: classNameStar, onClick: this.props.onClickToggleStar }),
+        input,
+        _react2.default.createElement('i', { className: 'far fa-trash-alt c-todoList__icon u-icon', onClick: this.props.onClickDelete })
       );
     }
   }]);
@@ -53558,7 +53587,16 @@ var Todo = function (_React$Component) {
   return Todo;
 }(_react2.default.Component);
 
-Todo.propTypes = {};
+Todo.propTypes = {
+  // id: PropTypes.string.isRequired,
+  text: _propTypes2.default.string.isRequired,
+  isDone: _propTypes2.default.bool.isRequired,
+  isStar: _propTypes2.default.bool.isRequired,
+  onClickToggleDone: _propTypes2.default.func.isRequired,
+  onClickToggleStar: _propTypes2.default.func.isRequired,
+  onEnterUpdateTodo: _propTypes2.default.func.isRequired,
+  onClickDelete: _propTypes2.default.func.isRequired
+};
 
 exports.default = Todo;
 

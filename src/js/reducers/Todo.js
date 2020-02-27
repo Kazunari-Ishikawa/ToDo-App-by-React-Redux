@@ -3,7 +3,7 @@ import _ from 'lodash';
 // 初期値設定
 const initialState = {
   todos: [{
-    id: 0,
+    id: '0',
     text: 'sample',
     isDone: false,
     isStar: false

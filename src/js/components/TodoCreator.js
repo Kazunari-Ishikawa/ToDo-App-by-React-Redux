@@ -1,5 +1,5 @@
 import React from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions/index';
 
@@ -52,7 +52,7 @@ class TodoCreator extends React.Component {
   }
 }
 
-TodoCreator.Proptypes = {
-  dispatch: Proptypes.func.isRequired
+TodoCreator.propTypes = {
+  dispatch: PropTypes.func.isRequired
 };
 export default connect()(TodoCreator)

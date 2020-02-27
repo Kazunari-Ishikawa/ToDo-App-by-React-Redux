@@ -25,7 +25,18 @@ class TodoList extends React.Component {
 }
 
 TodoList.propTypes = {
-
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+      isDone: PropTypes.bool.isRequired,
+      isStar: PropTypes.bool.isRequired,
+    }).isRequired
+  ).isRequired,
+  toggleDone: PropTypes.func.isRequired,
+  toggleStar: PropTypes.func.isRequired,
+  updateTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
 };
 
 export default TodoList;

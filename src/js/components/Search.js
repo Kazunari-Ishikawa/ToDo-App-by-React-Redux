@@ -1,5 +1,5 @@
 import React from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { searchTodo } from '../actions/index';
 
@@ -26,7 +26,7 @@ class Search extends React.Component {
   }
 }
 
-Search.Proptypes = {
-  dispatch: Proptypes.func.isRequired
+Search.propTypes = {
+  dispatch: PropTypes.func.isRequired
 };
 export default connect()(Search)
