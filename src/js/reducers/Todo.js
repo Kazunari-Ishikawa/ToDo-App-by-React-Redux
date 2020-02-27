@@ -76,7 +76,9 @@ export default function todo(state = initialState, action) {
         });
       }
     case 'DELETE_ALL_TODO':
-      return Object.assign({});
+      return Object.assign({}, {
+        todos: []
+      });
     default:
       return state;
   }
