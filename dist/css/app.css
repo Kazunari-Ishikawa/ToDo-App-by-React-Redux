@@ -102,7 +102,7 @@ body {
   font-size: 18px;
 }
 .err-msg {
-  color: #c93a40;
+  color: #bf545e;
   display: block;
   margin-bottom: 5px;
   text-align: left;
@@ -144,17 +144,18 @@ body {
   margin-right: 10px;
   margin-left: 10px;
   transition: 0.3s;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.25);
 }
 .c-btnArea__btn:hover {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 .c-btnArea__btn--done {
-  background: rgba(0,67,255,0.8);
+  background: #149bdf;
   color: white;
 }
 .c-btnArea__btn--clear {
-  background: rgba(255,90,0,0.8);
+  background: #bf545e;
   color: white;
 }
 .c-btnArea__text {
@@ -193,6 +194,11 @@ body {
 .c-todoList__icon {
   flex: 0 1 10%;
   font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.c-todoList__icon:hover {
+  transform: scale(1.2);
 }
 .c-todoList__text {
   flex: 3 1 50%;
@@ -209,5 +215,5 @@ body {
   color: #665e51;
 }
 .u-icon--trash {
-  color: #c93a40;
+  color: #bf545e;
 }
