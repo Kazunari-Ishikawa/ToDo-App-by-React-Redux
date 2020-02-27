@@ -14,7 +14,7 @@ class TodoCreator extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
   createID() {
-    return Math.random().toString(16);
+    return Math.random().toString(32).slice(-16);
   }
   handleChange(e) {
     this.setState({

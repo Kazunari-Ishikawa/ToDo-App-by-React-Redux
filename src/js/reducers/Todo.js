@@ -53,7 +53,7 @@ export default function todo(state = initialState, action) {
         todos: _.reject(state.todos, { 'id': action.id })
       });
     case 'SEARCH':
-      return Object.assign({}, state, { searchText: action.searchText });
+      return Object.assign({}, state, { 'searchText': action.searchText });
     case 'TOGGLE_STAR':
       return Object.assign({}, state, {
         todos: state.todos.map((todo) => {

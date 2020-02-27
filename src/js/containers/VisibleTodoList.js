@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { toggleDone, updateTodo, deleteTodo, toggleStar } from '../actions/index';
 import TodoList from '../components/TodoList';
 
-const filterTodo = elm => {
+const filterTodo = function (elm) {
   const regexp = new RegExp('^' + this.searchText, 'i');
   return (elm.text.match(regexp));
 };

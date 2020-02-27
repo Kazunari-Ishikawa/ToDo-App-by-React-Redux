@@ -35929,7 +35929,7 @@ function todo() {
         todos: _lodash2.default.reject(state.todos, { 'id': action.id })
       });
     case 'SEARCH':
-      return Object.assign({}, state, { searchText: action.searchText });
+      return Object.assign({}, state, { 'searchText': action.searchText });
     case 'TOGGLE_STAR':
       return Object.assign({}, state, {
         todos: state.todos.map(function (todo) {
@@ -53211,7 +53211,7 @@ var TodoCreator = function (_React$Component) {
   _createClass(TodoCreator, [{
     key: 'createID',
     value: function createID() {
-      return Math.random().toString(16);
+      return Math.random().toString(32).slice(-16);
     }
   }, {
     key: 'handleChange',
@@ -53366,7 +53366,7 @@ var _TodoList2 = _interopRequireDefault(_TodoList);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var filterTodo = function filterTodo(elm) {
-  var regexp = new RegExp('^' + undefined.searchText, 'i');
+  var regexp = new RegExp('^' + this.searchText, 'i');
   return elm.text.match(regexp);
 };
 
