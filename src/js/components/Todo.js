@@ -33,9 +33,9 @@ class Todo extends React.Component {
     });
   }
   render() {
-    const showTodo = <span className="c-todoList__text" onClick={this.handleClickShowEdit}>{this.state.text}</span>;
-    const editTodo = <input type="text" className="c-todoList__editForm" value={this.state.text} onKeyUp={this.handleClickCloseEdit} onChange={this.handleChangeText} />;
-    const input = (this.state.editMode) ? editTodo : showTodo;
+    const input = (this.state.editMode) ?
+      <span className="c-todoList__text" onClick={this.handleClickShowEdit}>{this.state.text}</span> :
+      <input type="text" className="c-todoList__editForm" value={this.state.text} onKeyUp={this.handleClickCloseEdit} onChange={this.handleChangeText} />;
 
     // リストのクラス名定義
     const classNameItem = ClassNames({

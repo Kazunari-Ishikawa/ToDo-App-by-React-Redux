@@ -19,14 +19,6 @@ export default function todo(state = initialState, action) {
         { id: action.id, text: action.text, isDone: false, isStar: false }]
       };
     case 'TOGGLE_DONE':
-      // const prev = state.todos.map((todo) => {
-      //   if (todo.id === action.id) {
-      //     return Object.assign({}, todo, {
-      //       isDone: !todo.isDone,
-      //     });
-      //   }
-      // });
-      // return Object.assign({}, state, prev);
       return Object.assign({}, state, {
         todos: state.todos.map((todo) => {
           if (todo.id === action.id) {
