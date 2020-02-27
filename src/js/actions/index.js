@@ -7,11 +7,10 @@ export function addTodo(id, text) {
   };
 }
 
-export function toggleDone(id, flg) {
+export function toggleDone(id) {
   return {
     type: 'TOGGLE_DONE',
     id: id,
-    isDone: flg
   };
 }
 
@@ -37,10 +36,9 @@ export function searchTodo(text) {
   };
 }
 
-export function toggleStar(id, flg) {
+export function toggleStar(id) {
   return {
     type: 'TOGGLE_STAR',
     id: id,
-    isStar: flg
   };
 }
