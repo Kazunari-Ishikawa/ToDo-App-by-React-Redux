@@ -72,7 +72,7 @@ body {
   width: 100%;
 }
 .c-title__main {
-  font-size: 48px;
+  font-size: 40px;
   margin-bottom: 40px;
 }
 .c-title__sub {
@@ -87,7 +87,6 @@ body {
 }
 .c-input__box {
   background: #e6d9b9;
-  /* background: rgba(230,217, 185, 0.5); */
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -107,13 +106,12 @@ body {
 /* search */
 .c-search {
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
   border-radius: 30px;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
 }
 .c-search__box {
   background: #e6d9b9;
-  /* background: rgba(230,217, 185, 0.5); */
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -198,6 +196,7 @@ body {
 .c-todoList__editForm {
   flex: 3 1 50%;
   font-size: 18px;
+  background: #eee;
   border: none;
 }
 
