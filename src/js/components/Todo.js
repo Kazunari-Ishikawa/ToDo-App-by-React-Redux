@@ -33,7 +33,7 @@ class Todo extends React.Component {
     });
   }
   render() {
-    const input = (this.state.editMode) ?
+    const input = (!this.state.editMode) ?
       <span className="c-todoList__text" onClick={this.handleClickShowEdit}>{this.state.text}</span> :
       <input type="text" className="c-todoList__editForm" value={this.state.text} onKeyUp={this.handleClickCloseEdit} onChange={this.handleChangeText} />;
 

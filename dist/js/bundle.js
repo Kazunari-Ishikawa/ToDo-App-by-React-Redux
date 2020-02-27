@@ -53567,13 +53567,11 @@ var Todo = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var showTodo = _react2.default.createElement(
+      var input = !this.state.editMode ? _react2.default.createElement(
         'span',
         { className: 'c-todoList__text', onClick: this.handleClickShowEdit },
         this.state.text
-      );
-      var editTodo = _react2.default.createElement('input', { type: 'text', className: 'c-todoList__editForm', value: this.state.text, onKeyUp: this.handleClickCloseEdit, onChange: this.handleChangeText });
-      var input = this.state.editMode ? editTodo : showTodo;
+      ) : _react2.default.createElement('input', { type: 'text', className: 'c-todoList__editForm', value: this.state.text, onKeyUp: this.handleClickCloseEdit, onChange: this.handleChangeText });
 
       // リストのクラス名定義
       var classNameItem = (0, _classnames2.default)({
