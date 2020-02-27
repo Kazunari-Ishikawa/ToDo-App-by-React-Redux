@@ -177,13 +177,13 @@ body {
   transform: scale(1.02);
 }
 .c-todoList__item.isDone {
-  background: rgba(0,0,0, 0.4);
+  background: #969696;
 }
 .c-todoList__item.isStar {
   background: #ffeb3b;
 }
 .c-todoList__item.isStar.isDone {
-  background: rgba(0,0,0, 0.4);
+  background: #969696;
 }
 .c-todoList__icon {
   flex: 0 1 10%;
