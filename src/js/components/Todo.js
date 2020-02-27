@@ -40,8 +40,8 @@ class Todo extends React.Component {
     // リストのクラス名定義
     const classNameItem = ClassNames({
       'c-todoList__item': true,
-      'c-todoList__item--done': this.props.isDone,
-      'c-todoList__item--star': this.props.isStar,
+      'isDone': this.props.isDone,
+      'isStar': this.props.isStar,
     });
     // アイコンのクラス名定義
     const classNameDone = ClassNames({
@@ -64,7 +64,7 @@ class Todo extends React.Component {
         <i className={classNameDone} onClick={this.props.onClickToggleDone}></i>
         <i className={classNameStar} onClick={this.props.onClickToggleStar}></i>
         {input}
-        <i className="c-todoList__icon u-icon far fa-trash-alt" onClick={this.props.onClickDelete}></i>
+        <i className="c-todoList__icon u-icon--trash far fa-trash-alt" onClick={this.props.onClickDelete}></i>
       </li>
     );
   }

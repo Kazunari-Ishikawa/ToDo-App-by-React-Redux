@@ -53242,7 +53242,7 @@ var TodoCreator = function (_React$Component) {
       ) : '';
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'c-input__errMsg' },
         errMsg,
         _react2.default.createElement(
           'div',
@@ -53576,8 +53576,8 @@ var Todo = function (_React$Component) {
       // リストのクラス名定義
       var classNameItem = (0, _classnames2.default)({
         'c-todoList__item': true,
-        'c-todoList__item--done': this.props.isDone,
-        'c-todoList__item--star': this.props.isStar
+        'isDone': this.props.isDone,
+        'isStar': this.props.isStar
       });
       // アイコンのクラス名定義
       var classNameDone = (0, _classnames2.default)({
@@ -53601,7 +53601,7 @@ var Todo = function (_React$Component) {
         _react2.default.createElement('i', { className: classNameDone, onClick: this.props.onClickToggleDone }),
         _react2.default.createElement('i', { className: classNameStar, onClick: this.props.onClickToggleStar }),
         input,
-        _react2.default.createElement('i', { className: 'c-todoList__icon u-icon far fa-trash-alt', onClick: this.props.onClickDelete })
+        _react2.default.createElement('i', { className: 'c-todoList__icon u-icon--trash far fa-trash-alt', onClick: this.props.onClickDelete })
       );
     }
   }]);

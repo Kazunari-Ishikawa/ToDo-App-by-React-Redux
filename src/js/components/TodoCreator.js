@@ -42,7 +42,7 @@ class TodoCreator extends React.Component {
   render() {
     const errMsg = (this.state.errMsg) ? <span className="err-msg">{this.state.errMsg}</span> : '';
     return (
-      <div>
+      <div className="c-input__errMsg">
         {errMsg}
         <div className="c-input">
           <input type="text" className="c-input__box" value={this.state.val} onChange={this.handleChange} onKeyUp={this.handleKeyUp} placeholder="Add task" />
