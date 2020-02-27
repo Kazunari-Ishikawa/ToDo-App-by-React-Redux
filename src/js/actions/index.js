@@ -42,3 +42,15 @@ export function toggleStar(id) {
     id: id,
   };
 }
+
+export function toggleAllDone() {
+  return {
+    type: 'TOGGLE_ALL_DONE',
+  };
+}
+
+export function deleteAllTodo() {
+  return {
+    type: 'DELETE_ALL_TODO',
+  };
+}

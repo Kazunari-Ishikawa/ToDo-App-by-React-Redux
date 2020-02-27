@@ -3,6 +3,7 @@ import TodoCreator from '../components/TodoCreator';
 import Search from '../components/Search';
 import VisibleTodoList from '../containers/VisibleTodoList';
 import Title from './Title';
+import AllChange from './AllChange';
 
 export default class TodoApp extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ export default class TodoApp extends React.Component {
         <Title />
         <TodoCreator />
         <Search />
+        <AllChange />
         <VisibleTodoList />
       </div>
     );
