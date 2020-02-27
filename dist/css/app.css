@@ -42,10 +42,10 @@ table {
 
 /* ベース */
 body {
-  background: #f6f5f4;
-  color: #333;
+  background: #eee;
+  color: #665e51;
   line-height: 1.2;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 /* 開発用 */
 #app {
@@ -86,6 +86,8 @@ body {
   box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
 }
 .c-input__box {
+  background: #e6d9b9;
+  /* background: rgba(230,217, 185, 0.5); */
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -94,6 +96,12 @@ body {
   border: none;
   height: 50px;
   font-size: 18px;
+}
+.err-msg {
+  color: #c93a40;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
 }
 
 /* search */
@@ -104,6 +112,8 @@ body {
   box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
 }
 .c-search__box {
+  background: #e6d9b9;
+  /* background: rgba(230,217, 185, 0.5); */
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -155,16 +165,23 @@ body {
   box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
 }
 .c-todoList__item {
+  background: #fff;
   box-sizing: border-box;
   width: 100%;
-  background: #fff;
   height: 50px;
   display: flex;
   align-items: center;
   padding: 5px;
   border-bottom: 1px solid #ccc;
+  transition: 0.3s;
 }
 .c-todoList__item.isDone {
+  background: rgba(0,0,0, 0.4);
+}
+.c-todoList__item.isStar {
+  background: #ffeb3b;
+}
+.c-todoList__item.isStar.isDone {
   background: rgba(0,0,0, 0.4);
 }
 .c-todoList__icon {
@@ -173,8 +190,15 @@ body {
 }
 .c-todoList__text {
   flex: 3 1 50%;
-  font-size: 20px;
+  font-size: 18px;
 }
 .c-todoList__editForm {
   border: none;
+}
+
+.u-icon {
+  color: #665e51;
+}
+.u-icon--trash {
+  color: #c93a40;
 }

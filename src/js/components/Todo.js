@@ -33,15 +33,15 @@ class Todo extends React.Component {
     });
   }
   render() {
-    const input = (this.state.editMode) ?
+    const input = (!this.state.editMode) ?
       <span className="c-todoList__text" onClick={this.handleClickShowEdit}>{this.state.text}</span> :
       <input type="text" className="c-todoList__editForm" value={this.state.text} onKeyUp={this.handleClickCloseEdit} onChange={this.handleChangeText} />;
 
     // リストのクラス名定義
     const classNameItem = ClassNames({
       'c-todoList__item': true,
-      'c-todoList__item--done': this.props.isDone,
-      'c-todoList__item--star': this.props.isStar,
+      'isDone': this.props.isDone,
+      'isStar': this.props.isStar,
     });
     // アイコンのクラス名定義
     const classNameDone = ClassNames({
@@ -64,7 +64,7 @@ class Todo extends React.Component {
         <i className={classNameDone} onClick={this.props.onClickToggleDone}></i>
         <i className={classNameStar} onClick={this.props.onClickToggleStar}></i>
         {input}
-        <i className="c-todoList__icon u-icon far fa-trash-alt" onClick={this.props.onClickDelete}></i>
+        <i className="c-todoList__icon u-icon--trash far fa-trash-alt" onClick={this.props.onClickDelete}></i>
       </li>
     );
   }

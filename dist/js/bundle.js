@@ -53242,7 +53242,7 @@ var TodoCreator = function (_React$Component) {
       ) : '';
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'c-input__errMsg' },
         errMsg,
         _react2.default.createElement(
           'div',
@@ -53567,19 +53567,17 @@ var Todo = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var showTodo = _react2.default.createElement(
+      var input = !this.state.editMode ? _react2.default.createElement(
         'span',
         { className: 'c-todoList__text', onClick: this.handleClickShowEdit },
         this.state.text
-      );
-      var editTodo = _react2.default.createElement('input', { type: 'text', className: 'c-todoList__editForm', value: this.state.text, onKeyUp: this.handleClickCloseEdit, onChange: this.handleChangeText });
-      var input = this.state.editMode ? editTodo : showTodo;
+      ) : _react2.default.createElement('input', { type: 'text', className: 'c-todoList__editForm', value: this.state.text, onKeyUp: this.handleClickCloseEdit, onChange: this.handleChangeText });
 
       // リストのクラス名定義
       var classNameItem = (0, _classnames2.default)({
         'c-todoList__item': true,
-        'c-todoList__item--done': this.props.isDone,
-        'c-todoList__item--star': this.props.isStar
+        'isDone': this.props.isDone,
+        'isStar': this.props.isStar
       });
       // アイコンのクラス名定義
       var classNameDone = (0, _classnames2.default)({
@@ -53603,7 +53601,7 @@ var Todo = function (_React$Component) {
         _react2.default.createElement('i', { className: classNameDone, onClick: this.props.onClickToggleDone }),
         _react2.default.createElement('i', { className: classNameStar, onClick: this.props.onClickToggleStar }),
         input,
-        _react2.default.createElement('i', { className: 'c-todoList__icon u-icon far fa-trash-alt', onClick: this.props.onClickDelete })
+        _react2.default.createElement('i', { className: 'c-todoList__icon u-icon--trash far fa-trash-alt', onClick: this.props.onClickDelete })
       );
     }
   }]);
